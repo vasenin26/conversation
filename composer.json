@@ -1,0 +1,19 @@
+{
+    "name": "vasenin26/conversation",
+    "description": "Conversation package",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Vasenin26\\Conversation\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "vasenin26",
+            "email": "leonid.vasenin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.2"
+    }
+}
