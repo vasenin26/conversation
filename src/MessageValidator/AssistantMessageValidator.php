@@ -11,10 +11,6 @@ class AssistantMessageValidator extends AbstractMessageTypeValidator
     
     public function isValidContent(array $content): bool
     {
-        if (!isset($content['content']) || !is_string($content['content'])) {
-            return false;
-        }
-        
         // tool_calls может отсутствовать или быть пустым массивом
         if (isset($content['tool_calls'])) {
             return is_array($content['tool_calls']);

@@ -29,7 +29,7 @@ readonly class AssistantMessage implements Message
     public static function createFromData(array $content): self
     {
         return new self(
-            $content['content'],
+            $content['content'] ?? '',
             $content['tool_calls'] ?? []
         );
     }
