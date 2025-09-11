@@ -1,8 +1,8 @@
 <?php
 
-namespace Anymodule\Agentmodule\Entity\Conversation\Messages;
+namespace Vasenin26\Conversation\Messages;
 
-use Anymodule\Agentmodule\Entity\Conversation\Message;
+use Vasenin26\Conversation\Message;
 
 readonly class AssistantMessage implements Message
 {

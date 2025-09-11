@@ -1,6 +1,6 @@
 <?php
 
-namespace Anymodule\Agentmodule\Entity\Conversation;
+namespace Vasenin26\Conversation;
 
 class Chat
 {
