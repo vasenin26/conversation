@@ -12,7 +12,7 @@ readonly class ToolMessage implements Message
         public bool   $success,
         public string $id,
         public string $name,
-        public array  $args,
+        public string  $args,
         public string $result,
     )
     {
