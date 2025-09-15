@@ -8,6 +8,14 @@ use Vasenin26\Conversation\MessageValidator\AssistantMessageValidator;
 use Vasenin26\Conversation\MessageValidator\SystemMessageValidator;
 use Vasenin26\Conversation\MessageValidator\ToolMessageValidator;
 use Vasenin26\Conversation\MessageValidator\UserMessageValidator;
+use Vasenin26\Conversation\MessageValidator\PageVersionMessageValidator;
+use Vasenin26\Conversation\MessageValidator\GitFileMessageValidator;
+use Vasenin26\Conversation\Messages\AssistantMessage;
+use Vasenin26\Conversation\Messages\SystemMessage;
+use Vasenin26\Conversation\Messages\ToolMessage;
+use Vasenin26\Conversation\Messages\UserMessage;
+use Vasenin26\Conversation\Messages\PageVersionMessage;
+use Vasenin26\Conversation\Messages\GitFileMessage;
 
 class MessageTypeValidatorFactory implements MessageTypeValidatorFactoryInterface
 {
@@ -16,10 +24,12 @@ class MessageTypeValidatorFactory implements MessageTypeValidatorFactoryInterfac
     public function __construct()
     {
         $this->validators = [
-            'user' => new UserMessageValidator(),
-            'system' => new SystemMessageValidator(),
-            'assistant' => new AssistantMessageValidator(),
-            'tool' => new ToolMessageValidator(),
+            UserMessage::TYPE => new UserMessageValidator(),
+            SystemMessage::TYPE => new SystemMessageValidator(),
+            AssistantMessage::TYPE => new AssistantMessageValidator(),
+            ToolMessage::TYPE => new ToolMessageValidator(),
+            PageVersionMessage::TYPE => new PageVersionMessageValidator(),
+            GitFileMessage::TYPE => new GitFileMessageValidator(),
         ];
     }
     
