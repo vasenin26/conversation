@@ -6,6 +6,8 @@ use Vasenin26\Conversation\Message;
 
 readonly class PageVersionMessage implements Message
 {
+    const TYPE = 'page-version';
+
     public function __construct(
         public string $versionId,
     )
@@ -21,7 +23,7 @@ readonly class PageVersionMessage implements Message
 
     public function getType(): string
     {
-        return 'page-version';
+        return self::TYPE;
     }
 
     public static function createFromData(array $content): Message

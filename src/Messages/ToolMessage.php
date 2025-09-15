@@ -6,6 +6,8 @@ use Vasenin26\Conversation\Message;
 
 readonly class ToolMessage implements Message
 {
+    const TYPE = 'tool';
+
     public function __construct(
         public string $id,
         public string $name,
@@ -25,7 +27,7 @@ readonly class ToolMessage implements Message
 
     public function getType(): string
     {
-        return 'tool';
+        return self::TYPE;
     }
     
     public static function createFromData(array $content): self

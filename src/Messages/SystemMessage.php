@@ -6,6 +6,8 @@ use Vasenin26\Conversation\Message;
 
 readonly class SystemMessage implements Message
 {
+    const TYPE = 'system';
+
     public function __construct(public string $content)
     {
     }
@@ -19,7 +21,7 @@ readonly class SystemMessage implements Message
 
     public function getType(): string
     {
-        return 'system';
+        return self::TYPE;
     }
     
     public static function createFromData(array $content): self

@@ -6,6 +6,8 @@ use Vasenin26\Conversation\Message;
 
 readonly class GitFileMessage implements Message
 {
+    const TYPE = 'git-file';
+
     public function __construct(
         public string $url,
     )
@@ -21,7 +23,7 @@ readonly class GitFileMessage implements Message
 
     public function getType(): string
     {
-        return 'git-file';
+        return self::TYPE;
     }
 
     public static function createFromData(array $content): Message

@@ -6,6 +6,8 @@ use Vasenin26\Conversation\Message;
 
 readonly class AssistantMessage implements Message
 {
+    const TYPE = 'assistant';
+
     public function __construct(
         public string $content,
         public array $toolCallsArray
@@ -23,7 +25,7 @@ readonly class AssistantMessage implements Message
 
     public function getType(): string
     {
-        return 'assistant';
+        return self::TYPE;
     }
     
     public static function createFromData(array $content): self

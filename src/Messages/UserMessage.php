@@ -6,6 +6,8 @@ use Vasenin26\Conversation\Message;
 
 readonly class UserMessage implements Message
 {
+    const TYPE = 'user';
+
     public function __construct(public string $content)
     {
     }
@@ -19,7 +21,7 @@ readonly class UserMessage implements Message
 
     public function getType(): string
     {
-        return 'user';
+        return self::TYPE;
     }
     
     public static function createFromData(array $content): self
