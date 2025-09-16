@@ -2,11 +2,13 @@
 
 namespace Vasenin26\Conversation\MessageValidator;
 
+use Vasenin26\Conversation\Messages\ToolMessage;
+
 class ToolMessageValidator extends AbstractMessageTypeValidator
 {
     public function getSupportedType(): string
     {
-        return 'tool';
+        return ToolMessage::TYPE;
     }
     
     public function isValidContent(array $content): bool
@@ -20,9 +22,9 @@ class ToolMessageValidator extends AbstractMessageTypeValidator
     {
         $errors = [];
         
-        $errors = array_merge($errors, $this->validateRequiredStringField($content, 'id', 'tool'));
-        $errors = array_merge($errors, $this->validateRequiredStringField($content, 'name', 'tool'));
-        $errors = array_merge($errors, $this->validateRequiredStringField($content, 'result', 'tool'));
+        $errors = array_merge($errors, $this->validateRequiredStringField($content, 'id', ToolMessage::TYPE));
+        $errors = array_merge($errors, $this->validateRequiredStringField($content, 'name', ToolMessage::TYPE));
+        $errors = array_merge($errors, $this->validateRequiredStringField($content, 'result', ToolMessage::TYPE));
         
         return $errors;
     }

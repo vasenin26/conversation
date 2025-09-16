@@ -4,9 +4,9 @@ namespace Vasenin26\Conversation\Messages;
 
 use Vasenin26\Conversation\Message;
 
-readonly class DisappearingMessage implements Message
+readonly class InfoMessage implements Message
 {
-    const TYPE = 'disappear';
+    const TYPE = 'info';
 
     public function __construct(public string $content)
     {

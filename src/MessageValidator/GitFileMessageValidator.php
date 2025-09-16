@@ -21,5 +21,3 @@ class GitFileMessageValidator extends AbstractMessageTypeValidator
         return $this->validateRequiredStringField($content, 'url', GitFileMessage::TYPE);
     }
 }
-
-

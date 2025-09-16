@@ -10,12 +10,16 @@ use Vasenin26\Conversation\MessageValidator\ToolMessageValidator;
 use Vasenin26\Conversation\MessageValidator\UserMessageValidator;
 use Vasenin26\Conversation\MessageValidator\PageVersionMessageValidator;
 use Vasenin26\Conversation\MessageValidator\GitFileMessageValidator;
-use Vasenin26\Conversation\Messages\AssistantMessage;
-use Vasenin26\Conversation\Messages\SystemMessage;
-use Vasenin26\Conversation\Messages\ToolMessage;
+use Vasenin26\Conversation\MessageValidator\InfoMessageValidator;
+use Vasenin26\Conversation\MessageValidator\DisappearingMessageValidator;
 use Vasenin26\Conversation\Messages\UserMessage;
+use Vasenin26\Conversation\Messages\SystemMessage;
+use Vasenin26\Conversation\Messages\AssistantMessage;
+use Vasenin26\Conversation\Messages\ToolMessage;
 use Vasenin26\Conversation\Messages\PageVersionMessage;
 use Vasenin26\Conversation\Messages\GitFileMessage;
+use Vasenin26\Conversation\Messages\InfoMessage;
+use Vasenin26\Conversation\Messages\DisappearingMessage;
 
 class MessageTypeValidatorFactory implements MessageTypeValidatorFactoryInterface
 {
@@ -30,6 +34,8 @@ class MessageTypeValidatorFactory implements MessageTypeValidatorFactoryInterfac
             ToolMessage::TYPE => new ToolMessageValidator(),
             PageVersionMessage::TYPE => new PageVersionMessageValidator(),
             GitFileMessage::TYPE => new GitFileMessageValidator(),
+            InfoMessage::TYPE => new InfoMessageValidator(),
+            DisappearingMessage::TYPE => new DisappearingMessageValidator(),
         ];
     }
     

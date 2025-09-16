@@ -10,6 +10,8 @@ use Vasenin26\Conversation\Messages\ToolMessage;
 use Vasenin26\Conversation\Messages\UserMessage;
 use Vasenin26\Conversation\Messages\PageVersionMessage;
 use Vasenin26\Conversation\Messages\GitFileMessage;
+use Vasenin26\Conversation\Messages\InfoMessage;
+use Vasenin26\Conversation\Messages\DisappearingMessage;
 
 class MessageFactory implements MessageFactoryInterface
 {
@@ -22,6 +24,8 @@ class MessageFactory implements MessageFactoryInterface
             ToolMessage::TYPE => ToolMessage::createFromData($content),
             PageVersionMessage::TYPE => PageVersionMessage::createFromData($content),
             GitFileMessage::TYPE => GitFileMessage::createFromData($content),
+            InfoMessage::TYPE => InfoMessage::createFromData($content),
+            DisappearingMessage::TYPE => DisappearingMessage::createFromData($content),
             default => throw new \InvalidArgumentException("Unknown message type: {$type}")
         };
     }
@@ -35,6 +39,8 @@ class MessageFactory implements MessageFactoryInterface
             ToolMessage::TYPE,
             PageVersionMessage::TYPE,
             GitFileMessage::TYPE,
+            InfoMessage::TYPE,
+            DisappearingMessage::TYPE,
         ];
     }
 }

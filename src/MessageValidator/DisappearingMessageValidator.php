@@ -2,13 +2,13 @@
 
 namespace Vasenin26\Conversation\MessageValidator;
 
-use Vasenin26\Conversation\Messages\SystemMessage;
+use Vasenin26\Conversation\Messages\DisappearingMessage;
 
-class SystemMessageValidator extends AbstractMessageTypeValidator
+class DisappearingMessageValidator extends AbstractMessageTypeValidator
 {
     public function getSupportedType(): string
     {
-        return SystemMessage::TYPE;
+        return DisappearingMessage::TYPE;
     }
     
     public function isValidContent(array $content): bool
@@ -18,6 +18,6 @@ class SystemMessageValidator extends AbstractMessageTypeValidator
     
     public function getValidationErrors(array $content): array
     {
-        return $this->validateRequiredStringField($content, 'content', SystemMessage::TYPE);
+        return $this->validateRequiredStringField($content, 'content', DisappearingMessage::TYPE);
     }
 }

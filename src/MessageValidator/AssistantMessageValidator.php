@@ -2,11 +2,13 @@
 
 namespace Vasenin26\Conversation\MessageValidator;
 
+use Vasenin26\Conversation\Messages\AssistantMessage;
+
 class AssistantMessageValidator extends AbstractMessageTypeValidator
 {
     public function getSupportedType(): string
     {
-        return 'assistant';
+        return AssistantMessage::TYPE;
     }
     
     public function isValidContent(array $content): bool
@@ -23,8 +25,8 @@ class AssistantMessageValidator extends AbstractMessageTypeValidator
     {
         $errors = [];
         
-        $errors = array_merge($errors, $this->validateRequiredStringField($content, 'content', 'assistant'));
-        $errors = array_merge($errors, $this->validateOptionalArrayField($content, 'tool_calls', 'assistant'));
+        $errors = array_merge($errors, $this->validateRequiredStringField($content, 'content', AssistantMessage::TYPE));
+        $errors = array_merge($errors, $this->validateOptionalArrayField($content, 'tool_calls', AssistantMessage::TYPE));
         
         return $errors;
     }

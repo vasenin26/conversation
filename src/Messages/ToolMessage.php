@@ -9,10 +9,8 @@ readonly class ToolMessage implements Message
     const TYPE = 'tool';
 
     public function __construct(
-        public bool   $success,
         public string $id,
         public string $name,
-        public string  $args,
         public string $result,
     )
     {
@@ -21,10 +19,8 @@ readonly class ToolMessage implements Message
     public function getContent(): array
     {
         return [
-            'success' => $this->success,
             'id' => $this->id,
             'name' => $this->name,
-            'args' => $this->args,
             'result' => $this->result
         ];
     }
@@ -33,14 +29,12 @@ readonly class ToolMessage implements Message
     {
         return self::TYPE;
     }
-
+    
     public static function createFromData(array $content): self
     {
         return new self(
-            $content['success'],
             $content['id'],
             $content['name'],
-            $content['args'],
             $content['result']
         );
     }

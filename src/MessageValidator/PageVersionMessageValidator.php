@@ -21,5 +21,3 @@ class PageVersionMessageValidator extends AbstractMessageTypeValidator
         return $this->validateRequiredStringField($content, 'versionId', PageVersionMessage::TYPE);
     }
 }
-
-
