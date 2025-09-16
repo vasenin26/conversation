@@ -2,6 +2,8 @@
 
 namespace Vasenin26\Conversation;
 
+use Vasenin26\Conversation\Messages\DisappearingMessage;
+
 class Chat
 {
     public function __construct(
@@ -25,6 +27,11 @@ class Chat
         $messages = [];
 
         foreach ($this->messages as $message) {
+
+            if ($message instanceof DisappearingMessage) {
+                continue;
+            }
+
             $messages[] = [
                 'type' => $message->getType(),
                 'message' => $message->getContent(),
