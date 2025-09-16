@@ -14,7 +14,9 @@ readonly class InfoMessage implements Message
 
     public function getContent(): array
     {
-        return [];
+        return [
+            'content' => $this->content,
+        ];
     }
 
     public function getType(): string
