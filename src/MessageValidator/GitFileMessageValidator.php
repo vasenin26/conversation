@@ -13,11 +13,20 @@ class GitFileMessageValidator extends AbstractMessageTypeValidator
     
     public function isValidContent(array $content): bool
     {
-        return isset($content['url']) && is_string($content['url']);
+        return isset($content['url']) && is_string($content['url']) &&
+               (!isset($content['description']) || is_string($content['description']));
     }
     
     public function getValidationErrors(array $content): array
     {
-        return $this->validateRequiredStringField($content, 'url', GitFileMessage::TYPE);
+        $errors = [];
+        
+        $errors = array_merge($errors, $this->validateRequiredStringField($content, 'url', GitFileMessage::TYPE));
+        
+        if (isset($content['description']) && !is_string($content['description'])) {
+            $errors[] = "Field 'description' must be a string for ".GitFileMessage::TYPE." message";
+        }
+        
+        return $errors;
     }
 }
