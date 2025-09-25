@@ -20,7 +20,7 @@ readonly class GitFileMessage implements Message
     {
         $content = [
             'url' => $this->url,
-            '$path' => $this->path,
+            'path' => $this->path,
         ];
         
         if ($this->description !== null) {
