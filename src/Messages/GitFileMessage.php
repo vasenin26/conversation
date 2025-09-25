@@ -10,6 +10,7 @@ readonly class GitFileMessage implements Message
 
     public function __construct(
         public string $url,
+        public string $path,
         public ?string $description = null,
     )
     {
@@ -19,6 +20,7 @@ readonly class GitFileMessage implements Message
     {
         $content = [
             'url' => $this->url,
+            '$path' => $this->path,
         ];
         
         if ($this->description !== null) {
@@ -37,6 +39,7 @@ readonly class GitFileMessage implements Message
     {
         return new self(
             $content['url'],
+            $content['path'],
             $content['description'] ?? null
         );
     }
