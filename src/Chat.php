@@ -3,6 +3,7 @@
 namespace Vasenin26\Conversation;
 
 use Vasenin26\Conversation\Messages\DisappearingMessage;
+use Vasenin26\Conversation\Messages\UserTaskMessage;
 
 class Chat
 {
@@ -20,6 +21,15 @@ class Chat
     public function getMessages(): array
     {
         return $this->messages;
+    }
+
+    public function getInstructions(): \Generator
+    {
+        foreach ($this->messages as $message) {
+            if ($message instanceof UserTaskMessage) {
+                yield $message;
+            }
+        }
     }
 
     public function serialize(): array
