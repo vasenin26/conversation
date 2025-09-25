@@ -2,11 +2,12 @@
 
 namespace Vasenin26\Conversation;
 
+use Vasenin26\Conversation\Interface\Conversation;
 use Vasenin26\Conversation\Messages\DisappearingMessage;
 use Vasenin26\Conversation\Messages\ServiceMessage;
 use Vasenin26\Conversation\Messages\UserTaskMessage;
 
-class Chat
+class Chat implements Conversation
 {
     public function __construct(
         private array $messages = []
