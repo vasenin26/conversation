@@ -14,6 +14,7 @@ class GitFileMessageValidator extends AbstractMessageTypeValidator
     public function isValidContent(array $content): bool
     {
         return isset($content['url']) && is_string($content['url']) &&
+            isset($content['path']) && is_string($content['path']) &&
                (!isset($content['description']) || is_string($content['description']));
     }
     
