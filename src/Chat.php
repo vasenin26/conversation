@@ -3,6 +3,7 @@
 namespace Vasenin26\Conversation;
 
 use Vasenin26\Conversation\Messages\DisappearingMessage;
+use Vasenin26\Conversation\Messages\ServiceMessage;
 use Vasenin26\Conversation\Messages\UserTaskMessage;
 
 class Chat
@@ -27,6 +28,15 @@ class Chat
     {
         foreach ($this->messages as $message) {
             if ($message instanceof UserTaskMessage) {
+                yield $message;
+            }
+        }
+    }
+
+    public function getServices(): \Generator
+    {
+        foreach ($this->messages as $message) {
+            if ($message instanceof ServiceMessage) {
                 yield $message;
             }
         }
