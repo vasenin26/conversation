@@ -8,6 +8,8 @@ use Vasenin26\Conversation\Messages\AssistantMessage;
 use Vasenin26\Conversation\Messages\SystemMessage;
 use Vasenin26\Conversation\Messages\ToolMessage;
 use Vasenin26\Conversation\Messages\UserMessage;
+use Vasenin26\Conversation\Messages\UserTaskMessage;
+use Vasenin26\Conversation\Messages\ServiceMessage;
 use Vasenin26\Conversation\Messages\PageVersionMessage;
 use Vasenin26\Conversation\Messages\GitFileMessage;
 use Vasenin26\Conversation\Messages\InfoMessage;
@@ -19,6 +21,8 @@ class MessageFactory implements MessageFactoryInterface
     {
         return match ($type) {
             UserMessage::TYPE => UserMessage::createFromData($content),
+            UserTaskMessage::TYPE => UserTaskMessage::createFromData($content),
+            ServiceMessage::TYPE => ServiceMessage::createFromData($content),
             SystemMessage::TYPE => SystemMessage::createFromData($content),
             AssistantMessage::TYPE => AssistantMessage::createFromData($content),
             ToolMessage::TYPE => ToolMessage::createFromData($content),
@@ -34,6 +38,8 @@ class MessageFactory implements MessageFactoryInterface
     {
         return [
             UserMessage::TYPE,
+            UserTaskMessage::TYPE,
+            ServiceMessage::TYPE,
             SystemMessage::TYPE,
             AssistantMessage::TYPE,
             ToolMessage::TYPE,
