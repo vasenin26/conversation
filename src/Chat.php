@@ -3,9 +3,11 @@
 namespace Vasenin26\Conversation;
 
 use Vasenin26\Conversation\Interface\Conversation;
+use Vasenin26\Conversation\Interface\MessageLinkInterface;
 use Vasenin26\Conversation\Messages\DisappearingMessage;
 use Vasenin26\Conversation\Messages\ServiceMessage;
 use Vasenin26\Conversation\Messages\UserTaskMessage;
+use Vasenin26\Conversation\Util\ServiceMessageLink;
 
 class Chat implements Conversation
 {
@@ -18,6 +20,13 @@ class Chat implements Conversation
     public function addMessage(Message $message): void
     {
         $this->messages[] = $message;
+    }
+
+    public function addServiceMessage(ServiceMessage $message): MessageLinkInterface
+    {
+        $this->addMessage($message);
+
+        return new ServiceMessageLink($message);
     }
 
     public function getMessages(): array
