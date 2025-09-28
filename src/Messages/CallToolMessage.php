@@ -9,6 +9,7 @@ readonly class CallToolMessage implements Message
     const TYPE = 'call-tool';
 
     public function __construct(
+        public string $description,
         public string $name,
         public array $args,
     )
@@ -18,6 +19,7 @@ readonly class CallToolMessage implements Message
     public function getContent(): array
     {
         return [
+            'description' => $this->description,
             'name' => $this->name,
             'args' => $this->args,
         ];
@@ -31,6 +33,7 @@ readonly class CallToolMessage implements Message
     public static function createFromData(array $content): self
     {
         return new self(
+            $content['description'],
             $content['name'],
             $content['args'],
         );

@@ -14,6 +14,7 @@ use Vasenin26\Conversation\MessageValidator\PageVersionMessageValidator;
 use Vasenin26\Conversation\MessageValidator\GitFileMessageValidator;
 use Vasenin26\Conversation\MessageValidator\InfoMessageValidator;
 use Vasenin26\Conversation\MessageValidator\DisappearingMessageValidator;
+use Vasenin26\Conversation\MessageValidator\CallToolMessageValidator;
 use Vasenin26\Conversation\Messages\UserMessage;
 use Vasenin26\Conversation\Messages\UserTaskMessage;
 use Vasenin26\Conversation\Messages\ServiceMessage;
@@ -24,6 +25,7 @@ use Vasenin26\Conversation\Messages\PageVersionMessage;
 use Vasenin26\Conversation\Messages\GitFileMessage;
 use Vasenin26\Conversation\Messages\InfoMessage;
 use Vasenin26\Conversation\Messages\DisappearingMessage;
+use Vasenin26\Conversation\Messages\CallToolMessage;
 
 class MessageTypeValidatorFactory implements MessageTypeValidatorFactoryInterface
 {
@@ -42,6 +44,7 @@ class MessageTypeValidatorFactory implements MessageTypeValidatorFactoryInterfac
             GitFileMessage::TYPE => new GitFileMessageValidator(),
             InfoMessage::TYPE => new InfoMessageValidator(),
             DisappearingMessage::TYPE => new DisappearingMessageValidator(),
+            CallToolMessage::TYPE => new CallToolMessageValidator(),
         ];
     }
     
