@@ -29,6 +29,11 @@ class ServiceMessage implements Message
         $this->status = ServiceStatus::ERROR;
     }
 
+    public function setPayload(array $payload): void
+    {
+        $this->payload = $payload;
+    }
+
     public function markCompleted(): void
     {
         $this->status = ServiceStatus::SUCCESS;

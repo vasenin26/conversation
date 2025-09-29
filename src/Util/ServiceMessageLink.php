@@ -23,6 +23,11 @@ readonly final class ServiceMessageLink implements MessageLinkInterface
         $this->message->setError($error);
     }
 
+    public function setPayload(array $payload): void
+    {
+        $this->message->setPayload($payload);
+    }
+
     public function complete(): void
     {
         $this->message->markCompleted();
