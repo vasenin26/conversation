@@ -8,5 +8,7 @@ interface MessageLinkInterface
 
     public function setError(string $error): void;
 
+    public function setPayload(array $payload): void;
+
     public function complete(): void;
 }
