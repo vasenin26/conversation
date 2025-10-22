@@ -5,6 +5,7 @@ namespace Vasenin26\Conversation\Factory;
 use Vasenin26\Conversation\Interface\MessageFactoryInterface;
 use Vasenin26\Conversation\Message;
 use Vasenin26\Conversation\Messages\AssistantMessage;
+use Vasenin26\Conversation\Messages\SliceMessage;
 use Vasenin26\Conversation\Messages\SystemMessage;
 use Vasenin26\Conversation\Messages\ToolMessage;
 use Vasenin26\Conversation\Messages\UserMessage;
@@ -24,6 +25,7 @@ class MessageFactory implements MessageFactoryInterface
             UserMessage::TYPE => UserMessage::createFromData($content),
             UserTaskMessage::TYPE => UserTaskMessage::createFromData($content),
             ServiceMessage::TYPE => ServiceMessage::createFromData($content),
+            SliceMessage::TYPE => SliceMessage::createFromData($content),
             SystemMessage::TYPE => SystemMessage::createFromData($content),
             AssistantMessage::TYPE => AssistantMessage::createFromData($content),
             ToolMessage::TYPE => ToolMessage::createFromData($content),
@@ -42,6 +44,7 @@ class MessageFactory implements MessageFactoryInterface
             UserMessage::TYPE,
             UserTaskMessage::TYPE,
             ServiceMessage::TYPE,
+            SliceMessage::TYPE,
             SystemMessage::TYPE,
             AssistantMessage::TYPE,
             ToolMessage::TYPE,

@@ -51,12 +51,12 @@ class ServiceMessage implements Message
 
     public function getType(): string
     {
-        return self::TYPE;
+        return static::TYPE;
     }
 
-    public static function createFromData(array $content): self
+    public static function createFromData(array $content): static
     {
-        return new self(
+        return new static(
             $content['key'],
             $content['message'],
             $content['payload'] ?? [],
