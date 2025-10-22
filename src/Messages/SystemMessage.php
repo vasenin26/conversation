@@ -21,11 +21,11 @@ readonly class SystemMessage implements Message
 
     public function getType(): string
     {
-        return self::TYPE;
+        return static::TYPE;
     }
     
-    public static function createFromData(array $content): self
+    public static function createFromData(array $content): static
     {
-        return new self($content['content']);
+        return new static($content['content']);
     }
 }

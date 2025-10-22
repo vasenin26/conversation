@@ -4,7 +4,9 @@ namespace Vasenin26\Conversation\Factory;
 
 use Vasenin26\Conversation\Interface\MessageTypeValidatorFactoryInterface;
 use Vasenin26\Conversation\Interface\MessageTypeValidatorInterface;
+use Vasenin26\Conversation\Messages\SliceMessage;
 use Vasenin26\Conversation\MessageValidator\AssistantMessageValidator;
+use Vasenin26\Conversation\MessageValidator\SliceMessageValidator;
 use Vasenin26\Conversation\MessageValidator\SystemMessageValidator;
 use Vasenin26\Conversation\MessageValidator\ToolMessageValidator;
 use Vasenin26\Conversation\MessageValidator\UserMessageValidator;
@@ -37,6 +39,7 @@ class MessageTypeValidatorFactory implements MessageTypeValidatorFactoryInterfac
             UserMessage::TYPE => new UserMessageValidator(),
             UserTaskMessage::TYPE => new UserTaskMessageValidator(),
             ServiceMessage::TYPE => new ServiceMessageValidator(),
+            SliceMessage::TYPE => new SliceMessageValidator(),
             SystemMessage::TYPE => new SystemMessageValidator(),
             AssistantMessage::TYPE => new AssistantMessageValidator(),
             ToolMessage::TYPE => new ToolMessageValidator(),
