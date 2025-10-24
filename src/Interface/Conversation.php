@@ -14,4 +14,6 @@ interface Conversation
     public function getInstructions(): \Generator;
     public function getServices(): \Generator;
     public function serialize(): array;
+
+    public function hasNoUserAnswer(): bool;
 }

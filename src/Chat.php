@@ -6,6 +6,7 @@ use Vasenin26\Conversation\Interface\Conversation;
 use Vasenin26\Conversation\Interface\MessageLinkInterface;
 use Vasenin26\Conversation\Messages\DisappearingMessage;
 use Vasenin26\Conversation\Messages\ServiceMessage;
+use Vasenin26\Conversation\Messages\UserMessage;
 use Vasenin26\Conversation\Messages\UserTaskMessage;
 use Vasenin26\Conversation\Util\ServiceMessageLink;
 
@@ -69,5 +70,19 @@ class Chat implements Conversation
         }
 
         return $messages;
+    }
+
+    private function hasNoUserAnswer(): bool
+    {
+        $messages = $this->getMessages();
+
+        if (empty($messages)) {
+            return false;
+        }
+
+        $lastElementArray = array_slice($messages, -1);
+        $lastElement = $lastElementArray[0];
+
+        return $lastElement instanceof UserMessage;
     }
 }
