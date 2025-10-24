@@ -72,7 +72,7 @@ class Chat implements Conversation
         return $messages;
     }
 
-    private function hasNoUserAnswer(): bool
+    public function hasNoUserAnswer(): bool
     {
         $messages = $this->getMessages();
 
